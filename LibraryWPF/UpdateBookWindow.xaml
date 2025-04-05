@@ -1,0 +1,89 @@
+﻿<Window x:Class="LibraryWPF.UpdateBookWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:LibraryWPF"
+        mc:Ignorable="d"
+        Title="Update Book Window" Height="350" Width="400">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <!-- Fixed width for TextBlocks -->
+            <ColumnDefinition Width="*"/>
+            <!-- Flexible width for TextBoxes -->
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Title:" Grid.Row="0" Grid.Column="0" 
+                   Style="{StaticResource MaterialDesignBody2TextBlock}" 
+                   FontSize="12" Margin="0 10 0 3"/>
+        <TextBox x:Name="TitleTextBox" Grid.Row="0" Grid.Column="1" Margin="0,0,0,3" 
+                 materialDesign:HintAssist.Hint="Enter Title" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 FontSize="12" Height="30"/>
+
+        <TextBlock Text="ISBN:" Grid.Row="1" Grid.Column="0" 
+                   Style="{StaticResource MaterialDesignBody2TextBlock}" 
+                   FontSize="12" Margin="0 10 0 3"/>
+        <TextBox x:Name="ISBNTextBox" Grid.Row="1" Grid.Column="1" Margin="0,0,0,3" 
+                 materialDesign:HintAssist.Hint="Enter ISBN" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 FontSize="12" Height="30"/>
+
+        <TextBlock Text="Publication Year:" Grid.Row="2" Grid.Column="0" 
+                   Style="{StaticResource MaterialDesignBody2TextBlock}" 
+                   FontSize="12" Margin="0 10 0 3"/>
+        <TextBox x:Name="PublicationYearTextBox" Grid.Row="2" Grid.Column="1" Margin="0,0,0,3" 
+                 materialDesign:HintAssist.Hint="Enter Year" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 FontSize="12" Height="30"/>
+
+        <TextBlock Text="Genre:" Grid.Row="3" Grid.Column="0" 
+                   Style="{StaticResource MaterialDesignBody2TextBlock}" 
+                   FontSize="12" Margin="0 10 0 3"/>
+        <TextBox x:Name="GenreTextBox" Grid.Row="3" Grid.Column="1" Margin="0,0,0,3" 
+                 materialDesign:HintAssist.Hint="Enter Genre" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 FontSize="12" Height="30"/>
+
+        <TextBlock Text="Copies Available:" Grid.Row="4" Grid.Column="0" 
+                   Style="{StaticResource MaterialDesignBody2TextBlock}" 
+                   FontSize="12" Margin="0 10 0 3"/>
+        <TextBox x:Name="CopiesAvailableTextBox" Grid.Row="4" Grid.Column="1" Margin="0,0,0,3" 
+                 materialDesign:HintAssist.Hint="Enter Number" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 FontSize="12" Height="30"/>
+
+        <TextBlock Text="Author First Name:" Grid.Row="5" Grid.Column="0" 
+                   Style="{StaticResource MaterialDesignBody2TextBlock}" 
+                   FontSize="12" Margin="0 10 0 3"/>
+        <TextBox x:Name="AuthorFirstNameTextBox" Grid.Row="5" Grid.Column="1" Margin="0,0,0,3" 
+                 materialDesign:HintAssist.Hint="Enter First Name" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 FontSize="12" Height="30"/>
+
+        <TextBlock Text="Author Last Name:" Grid.Row="6" Grid.Column="0" 
+                   Style="{StaticResource MaterialDesignBody2TextBlock}" 
+                   FontSize="12" Margin="0 10 0 3"/>
+        <TextBox x:Name="AuthorLastNameTextBox" Grid.Row="6" Grid.Column="1" Margin="0,0,0,3" 
+                 materialDesign:HintAssist.Hint="Enter Last Name" 
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 FontSize="12" Height="30"/>
+
+        <Button x:Name="UpdateBookButton" Content="Update Book" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" 
+                Margin="0,5,0,0" Style="{StaticResource MaterialDesignRaisedButton}" 
+                FontSize="12" Width="120" Height="25" 
+                HorizontalAlignment="Center" Click="UpdateBook_Click"/>
+    </Grid>
+</Window>

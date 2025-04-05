@@ -1,0 +1,22 @@
+﻿<Window x:Class="LibraryWPF.BookDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Book Details" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!-- DataGrid -->
+            <RowDefinition Height="Auto" />
+            <!-- Buttons -->
+        </Grid.RowDefinitions>
+
+        <!-- DataGrid showing users renting/reserving the book -->
+        <DataGrid x:Name="UsersDataGrid" AutoGenerateColumns="True"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" />
+
+        <!-- Button for marking book as returned -->
+        <Button Grid.Row="1" Content="Mark as Returned" Height="30" Width="150" 
+                HorizontalAlignment="Center" Margin="10" Click="MarkAsReturnedButton_Click" />
+    </Grid>
+</Window>
