@@ -42,7 +42,7 @@
                 <Button Content="Update" Width="100" Margin="5" Click="UpdateBookButton_Click" Name="UpdateButton"/>
                 <Button Content="Delete" Width="100" Margin="5" Click="DeleteBookButton_Click" Name="DeleteButton"/>
                 <TextBox x:Name="SearchBox" Width="150" Height="25" VerticalAlignment="Center" Margin="10,0,10,0"/>
-                <Button Content="Search" Width="80" Click="SearchButton_Click"  Margin="5"/>
+                <Button Content="Search" Width="80" Click="SearchButton_Click"  Margin="5" Name="SearchButton"/>
             </DockPanel>
         </StackPanel>
 

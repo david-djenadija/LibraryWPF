@@ -41,6 +41,22 @@ namespace LibraryWPF
             {
                 string themeName = selectedItem.Content.ToString();
                 ThemeManager.ApplyTheme(themeName); // Apply theme globally
+                UpdateUserTheme(Session.UserID, themeName);
+            }
+        }
+        private void UpdateUserTheme(int userId, string theme)
+        {
+            string connectionString = MainWindow.connectionString;
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "UPDATE User SET Theme = @Theme WHERE UserID = @UserID";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Theme", theme);
+                    command.Parameters.AddWithValue("@UserID", userId);
+                    command.ExecuteNonQuery();
+                }
             }
         }
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
@@ -69,8 +85,8 @@ namespace LibraryWPF
             LogoutNav.Content = "Odjava";
             LanLabel.Text = "Jezik:";
             LanButton.Content = "Promjeni";
-            FeeLabel.Text = "Promjeni taksu za kašnjenje:";
             FeeButton.Content = "Promjeni";
+            HintAssist.SetHint(FeeBox, "Unesi taksu");
         }
 
         private void LanguageChange_Click(object sender, RoutedEventArgs e)
@@ -107,7 +123,7 @@ namespace LibraryWPF
             {
                 try
                 {
-                    string connectionString = "Server=localhost;Database=library_hci;Uid=root;Pwd=root;";
+                    string connectionString = MainWindow.connectionString;
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
                         connection.Open();

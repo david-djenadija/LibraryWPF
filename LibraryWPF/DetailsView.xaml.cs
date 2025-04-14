@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
+using MaterialDesignThemes.Wpf;
 using MySql.Data.MySqlClient;
 
 namespace LibraryWPF
@@ -16,6 +17,15 @@ namespace LibraryWPF
             InitializeComponent();
             LoadUserDetails();
             LoadUserRentals();
+            if (AdminSettings.selectedIndex == 1) LanguageChange();
+        }
+        private void LanguageChange()
+        {
+            MembersNav.Content = "Članovi";
+            BooksNav.Content = "Knjige";
+            SettingsNav.Content = "Podešavanja";
+            LogoutNav.Content = "Odjava";
+            ReservationButton.Content = "Prikaži rezervacije";
         }
 
         private void LoadUserRentals()
@@ -64,12 +74,19 @@ namespace LibraryWPF
             if (showingRentals)
             {
                 LoadUserReservations();
+                if(AdminSettings.selectedIndex == 0)
                 ((Button)sender).Content = "Show Rentals";
+                else
+                    ((Button)sender).Content = "Prikaži iznajmljivanje";
             }
             else
             {
                 LoadUserRentals();
-                ((Button)sender).Content = "Show Reservations";
+                if (AdminSettings.selectedIndex == 0)
+                    ((Button)sender).Content = "Show Reservations";
+                else
+                    ((Button)sender).Content = "Prikaži rezervacije";
+               
             }
 
             showingRentals = !showingRentals; // Toggle the state

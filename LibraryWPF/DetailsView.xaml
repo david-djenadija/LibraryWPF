@@ -28,10 +28,10 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top" Margin="5" Grid.RowSpan="5">
-            <Button Content="Members" Height="30" Margin="5" Click="MembersNav_click"/>
-            <Button Content="Books" Height="30" Margin="5" Click="BooksNav_click"/>
-            <Button Content="Settings" Height="30" Margin="5" Click="SettingsNav_click"/>
-            <Button Content="Logout" Height="30" Margin="5" Click="LogoutButton_Click"/>
+            <Button Content="Members" Height="30" Margin="5" Click="MembersNav_click" Name="MembersNav"/>
+            <Button Content="Books" Height="30" Margin="5" Click="BooksNav_click" Name="BooksNav"/>
+            <Button Content="Settings" Height="30" Margin="5" Click="SettingsNav_click" Name="SettingsNav"/>
+            <Button Content="Logout" Height="30" Margin="5" Click="LogoutButton_Click" Name="LogoutNav"/>
         </StackPanel>
         <Label Content="Ime Prezime" Grid.Row="0" Grid.Column="1" Name="NameLabel"/>
         <Label Content="Datum rodjenja" Grid.Row="1" Grid.Column="1" Name="BirthDateLabel"/>
@@ -42,8 +42,8 @@
         <Label Content="Za platiti" Grid.Row="2" Grid.Column="3" Name="AmountDueLabel"/>
         <!-- Button to toggle data -->
         <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Content="Show Reservations" 
-                Margin="10 0" Height="30" HorizontalAlignment="Left" Width="150" 
-                Click="ToggleDataButton_Click" />
+                Margin="10 0" Height="30" HorizontalAlignment="Left" Width="180" 
+                Click="ToggleDataButton_Click" Name="ReservationButton" />
         <DataGrid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4" Grid.RowSpan="7" x:Name="DataGridTable"
               AutoGenerateColumns="True"
               HorizontalAlignment="Stretch"

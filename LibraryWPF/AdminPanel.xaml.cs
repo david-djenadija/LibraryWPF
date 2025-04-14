@@ -139,7 +139,7 @@ private void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(BookDetailsWindow.connectionString))
+                using (MySqlConnection connection = new MySqlConnection(MainWindow.connectionString))
                 {
                     connection.Open();
                     string query = "SELECT MemberID, MembershipStartDate, MembershipEndDate, CONCAT(FirstName, ' ' , LastName) as Name, Username, Email, DateOfBirth, Gender, ToPay FROM Member m INNER JOIN USER u on m.UserID=u.UserID INNER JOIN PERSON p on u.PersonID=p.PersonID";
@@ -163,7 +163,7 @@ private void UpdateButton_Click(object sender, RoutedEventArgs e)
             }
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(BookDetailsWindow.connectionString))
+                using (MySqlConnection connection = new MySqlConnection(MainWindow.connectionString))
                 {
                     connection.Open();
                     string query = @"

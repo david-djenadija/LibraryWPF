@@ -40,11 +40,12 @@ namespace LibraryWPF
 
         private void ExecuteLogin(object parameter)
         {
-            string connectionString = "Server=localhost;Database=library_hci;Uid=root;Pwd=root;";
+            string connectionString = MainWindow.connectionString;
             string query = @"
             SELECT 
                 u.UserID, 
                 m.MemberID,
+                u.Theme,
                 CASE 
                     WHEN a.AdminID IS NOT NULL THEN 'Admin'
                     WHEN m.MemberID IS NOT NULL THEN 'Member'
@@ -75,7 +76,8 @@ namespace LibraryWPF
                                 int userId = reader.GetInt32("UserID");
                                 string role = reader["UserRole"]?.ToString();
                                 int? memberId = reader["MemberID"] != DBNull.Value ? reader.GetInt32("MemberID") : (int?)null;
-
+                                string theme = reader["Theme"].ToString();
+                                ThemeManager.ApplyTheme(theme); // Apply the theme
                                 // Store UserID and MemberID in session
                                 Session.UserID = userId;
                                 Session.UserRole = role;

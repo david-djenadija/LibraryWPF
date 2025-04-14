@@ -23,7 +23,7 @@
         <!-- Form Fields -->
         <TextBlock Grid.Row="0" Grid.Column="0" Text="First Name:" 
                    Style="{StaticResource MaterialDesignBody1TextBlock}" 
-                   FontSize="12" Margin="0 0 5 5"/>
+                   FontSize="12" Margin="0 0 5 5" Name="FirstNameBlock"/>
         <TextBox Grid.Row="0" Grid.Column="1" x:Name="FirstNameTextBox" 
                  materialDesign:HintAssist.Hint="Enter First Name" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -31,7 +31,7 @@
 
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Last Name:" 
                    Style="{StaticResource MaterialDesignBody1TextBlock}" 
-                   FontSize="12" Margin="0 0 5 5"/>
+                   FontSize="12" Margin="0 0 5 5" Name="LastNameBlock"/>
         <TextBox Grid.Row="1" Grid.Column="1" x:Name="LastNameTextBox" 
                  materialDesign:HintAssist.Hint="Enter Last Name" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -39,7 +39,7 @@
 
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Date of Birth:" 
                    Style="{StaticResource MaterialDesignBody1TextBlock}" 
-                   FontSize="12" Margin="0 0 5 5"/>
+                   FontSize="12" Margin="0 0 5 5" Name="DateBlock"/>
         <DatePicker Grid.Row="2" Grid.Column="1" x:Name="DateOfBirthPicker" 
                     materialDesign:HintAssist.Hint="Select Date" 
                     Style="{StaticResource MaterialDesignDatePicker}" 
@@ -47,7 +47,7 @@
 
         <TextBlock Grid.Row="6" Grid.Column="0" Text="Membership Start Date:" 
                    Style="{StaticResource MaterialDesignBody1TextBlock}" 
-                   FontSize="12" Margin="0 0 5 5"/>
+                   FontSize="12" Margin="0 0 5 5" Name="StartMembershipBlock"/>
         <DatePicker Grid.Row="6" Grid.Column="1" x:Name="MembershipStartDatePicker" 
                     materialDesign:HintAssist.Hint="Select Date" 
                     Style="{StaticResource MaterialDesignDatePicker}" 
@@ -55,7 +55,7 @@
 
         <TextBlock Grid.Row="7" Grid.Column="0" Text="To Pay:" 
                    Style="{StaticResource MaterialDesignBody1TextBlock}" 
-                   FontSize="12" Margin="0 0 5 5"/>
+                   FontSize="12" Margin="0 0 5 5" Name="ToPayBlock"/>
         <TextBox Grid.Row="7" Grid.Column="1" x:Name="ToPayTextBox" 
                  materialDesign:HintAssist.Hint="Enter Amount" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 

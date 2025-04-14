@@ -16,7 +16,7 @@
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" />
 
         <!-- Button for marking book as returned -->
-        <Button Grid.Row="1" Content="Mark as Returned" Height="30" Width="150" 
-                HorizontalAlignment="Center" Margin="10" Click="MarkAsReturnedButton_Click" />
+        <Button Grid.Row="1" Content="Mark as Returned" Height="30" Width="180" 
+                HorizontalAlignment="Center" Margin="10" Click="MarkAsReturnedButton_Click" Name="ReturnedButton" />
     </Grid>
 </Window>

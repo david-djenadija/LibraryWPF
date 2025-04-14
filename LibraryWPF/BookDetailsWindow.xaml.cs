@@ -14,6 +14,11 @@ namespace LibraryWPF
             InitializeComponent();
             this.bookId = bookId;
             LoadUsers();
+            if(PersonnelSettings.selectedIndex == 1) languageChange();
+        }
+        private void languageChange()
+        {
+            ReturnedButton.Content = "Označi kao vraćeno";
         }
 
         private void LoadUsers()

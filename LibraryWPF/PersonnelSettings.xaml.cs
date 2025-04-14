@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,22 @@ namespace LibraryWPF
             {
                 string themeName = selectedItem.Content.ToString();
                 ThemeManager.ApplyTheme(themeName); // Apply theme globally
+                UpdateUserTheme(Session.UserID,themeName);
+            }
+        }
+        private void UpdateUserTheme(int userId, string theme)
+        {
+            string connectionString = MainWindow.connectionString;
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "UPDATE User SET Theme = @Theme WHERE UserID = @UserID";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Theme", theme);
+                    command.Parameters.AddWithValue("@UserID", userId);
+                    command.ExecuteNonQuery();
+                }
             }
         }
         private void LanguageChange_Click(object sender, RoutedEventArgs e)

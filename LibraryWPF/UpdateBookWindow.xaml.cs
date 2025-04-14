@@ -31,6 +31,17 @@ namespace LibraryWPF
             this.bookId = bookId;
             LoadBookData();
             ApplyCurrentTheme();
+            if(AdminSettings.selectedIndex == 1) languageChange();
+        }
+        private void languageChange()
+        {
+            TitleBlock.Text = "Naslov:";
+            pubYearBlock.Text = "Godina izdanja:";
+            GenreBlock.Text = "Žanr:";
+            copiesBlock.Text = "Dostupne kopije:";
+            FirstNameBlock.Text = "Ime Autora:";
+            LastNameBlock.Text = "Prezime Autora:";
+            UpdateBookButton.Content = "Ažuriraj knjigu";
         }
         private void ApplyCurrentTheme()
         {

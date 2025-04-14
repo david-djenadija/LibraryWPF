@@ -9,7 +9,7 @@ namespace LibraryWPF
 {
     public partial class BooksAdmin : UserControl
     {
-        private string _connectionString = "Server=localhost;Database=library_hci;Uid=root;Pwd=root;";
+        private string _connectionString = MainWindow.connectionString;
 
         public BooksAdmin()
         {
@@ -28,6 +28,7 @@ namespace LibraryWPF
             CreateButton.Content = "Dodaj";
             UpdateButton.Content = "Ažuriraj";
             DeleteButton.Content = "Obriši";
+            SearchButton.Content = "Pretraži";
         }
 
         private void LoadBooks()

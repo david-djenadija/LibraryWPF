@@ -25,6 +25,21 @@ namespace LibraryWPF
         {
             InitializeComponent();
             ApplyCurrentTheme();
+            if (AdminSettings.selectedIndex == 1) languageChange();
+        }
+        private void languageChange()
+        {
+            FirstNameBlock.Text = "Ime:";
+            LastNameBlock.Text = "Prezime:";
+            DateOfBirthBlock.Text = "Datum rođenja:";
+            GenderBlock.Text = "Pol:";
+            UsernameBlock.Text = "Korisničko ime:";
+            PassBlock.Text = "Šifra:";
+            StartDateBlock.Text = "Početak članstva:";
+            EndDateBlock.Text = "Kraj članstva:";
+            ToPayBlock.Text = "Dug:";
+            SaveButton.Content = "Sačuvaj";
+            CancelButton.Content = "Otkaži";
         }
         private void ApplyCurrentTheme()
         {

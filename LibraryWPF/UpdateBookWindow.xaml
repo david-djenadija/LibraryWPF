@@ -27,7 +27,7 @@
 
         <TextBlock Text="Title:" Grid.Row="0" Grid.Column="0" 
                    Style="{StaticResource MaterialDesignBody2TextBlock}" 
-                   FontSize="12" Margin="0 10 0 3"/>
+                   FontSize="12" Margin="0 10 0 3" Name="TitleBlock"/>
         <TextBox x:Name="TitleTextBox" Grid.Row="0" Grid.Column="1" Margin="0,0,0,3" 
                  materialDesign:HintAssist.Hint="Enter Title" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -35,7 +35,7 @@
 
         <TextBlock Text="ISBN:" Grid.Row="1" Grid.Column="0" 
                    Style="{StaticResource MaterialDesignBody2TextBlock}" 
-                   FontSize="12" Margin="0 10 0 3"/>
+                   FontSize="12" Margin="0 10 0 3" />
         <TextBox x:Name="ISBNTextBox" Grid.Row="1" Grid.Column="1" Margin="0,0,0,3" 
                  materialDesign:HintAssist.Hint="Enter ISBN" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -43,7 +43,7 @@
 
         <TextBlock Text="Publication Year:" Grid.Row="2" Grid.Column="0" 
                    Style="{StaticResource MaterialDesignBody2TextBlock}" 
-                   FontSize="12" Margin="0 10 0 3"/>
+                   FontSize="12" Margin="0 10 0 3" Name="pubYearBlock"/>
         <TextBox x:Name="PublicationYearTextBox" Grid.Row="2" Grid.Column="1" Margin="0,0,0,3" 
                  materialDesign:HintAssist.Hint="Enter Year" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -51,7 +51,7 @@
 
         <TextBlock Text="Genre:" Grid.Row="3" Grid.Column="0" 
                    Style="{StaticResource MaterialDesignBody2TextBlock}" 
-                   FontSize="12" Margin="0 10 0 3"/>
+                   FontSize="12" Margin="0 10 0 3" Name="GenreBlock"/>
         <TextBox x:Name="GenreTextBox" Grid.Row="3" Grid.Column="1" Margin="0,0,0,3" 
                  materialDesign:HintAssist.Hint="Enter Genre" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -59,7 +59,7 @@
 
         <TextBlock Text="Copies Available:" Grid.Row="4" Grid.Column="0" 
                    Style="{StaticResource MaterialDesignBody2TextBlock}" 
-                   FontSize="12" Margin="0 10 0 3"/>
+                   FontSize="12" Margin="0 10 0 3" Name="copiesBlock"/>
         <TextBox x:Name="CopiesAvailableTextBox" Grid.Row="4" Grid.Column="1" Margin="0,0,0,3" 
                  materialDesign:HintAssist.Hint="Enter Number" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -67,7 +67,7 @@
 
         <TextBlock Text="Author First Name:" Grid.Row="5" Grid.Column="0" 
                    Style="{StaticResource MaterialDesignBody2TextBlock}" 
-                   FontSize="12" Margin="0 10 0 3"/>
+                   FontSize="12" Margin="0 10 0 3" Name="FirstNameBlock"/>
         <TextBox x:Name="AuthorFirstNameTextBox" Grid.Row="5" Grid.Column="1" Margin="0,0,0,3" 
                  materialDesign:HintAssist.Hint="Enter First Name" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -75,7 +75,7 @@
 
         <TextBlock Text="Author Last Name:" Grid.Row="6" Grid.Column="0" 
                    Style="{StaticResource MaterialDesignBody2TextBlock}" 
-                   FontSize="12" Margin="0 10 0 3"/>
+                   FontSize="12" Margin="0 10 0 3" Name="LastNameBlock"/>
         <TextBox x:Name="AuthorLastNameTextBox" Grid.Row="6" Grid.Column="1" Margin="0,0,0,3" 
                  materialDesign:HintAssist.Hint="Enter Last Name" 
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 

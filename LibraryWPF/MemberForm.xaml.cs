@@ -28,7 +28,18 @@ namespace LibraryWPF
                 MembershipStartDatePicker.SelectedDate = membershipStart;
                 ToPayTextBox.Text = toPay?.ToString();
             }
+            if (AdminSettings.selectedIndex == 1) LanguageChange();
             ApplyCurrentTheme();
+        }
+        private void LanguageChange()
+        {
+            FirstNameBlock.Text = "Ime:";
+            LastNameBlock.Text = "Prezime:";
+            DateBlock.Text = "Datum rođenja:";
+            StartMembershipBlock.Text = "Početak članstva:";
+            ToPayBlock.Text = "Dug:";
+            SaveButton.Content = "Sačuvaj";
+            CancelButton.Content = "Otkaži";
         }
         private void ApplyCurrentTheme()
         {
