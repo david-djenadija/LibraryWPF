@@ -42,6 +42,14 @@ namespace LibraryWPF
             FirstNameBlock.Text = "Ime Autora:";
             LastNameBlock.Text = "Prezime Autora:";
             UpdateBookButton.Content = "Ažuriraj knjigu";
+            HintAssist.SetHint(TitleTextBox, "Unesite naslov");
+            HintAssist.SetHint(ISBNTextBox, "Unesite ISBN");
+            HintAssist.SetHint(PublicationYearTextBox, "Unesite godinu izdanja");
+            HintAssist.SetHint(GenreTextBox, "Unesite žanr");
+            HintAssist.SetHint(CopiesAvailableTextBox, "Unesite dostupne kopije");
+            HintAssist.SetHint(AuthorFirstNameTextBox, "Unesite ime autora");
+            HintAssist.SetHint(AuthorLastNameTextBox, "Unesite prezime autora");
+            
         }
         private void ApplyCurrentTheme()
         {

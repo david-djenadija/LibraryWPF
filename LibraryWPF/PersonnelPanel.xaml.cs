@@ -17,7 +17,7 @@ namespace LibraryWPF
             InitializeComponent();
             LoadBooks();
             UpdateLabels();
-            BooksNav.Background = new SolidColorBrush(Colors.Red);
+            BooksNav.Background = new SolidColorBrush(Colors.LightGreen);
             if (PersonnelSettings.selectedIndex == 1) changeLanguage();
         }
 
@@ -27,8 +27,8 @@ namespace LibraryWPF
             SettingsNav.Content = "Podešavanja";
             LogoutNav.Content = "Odjava";
             SearchButton.Content = "Pretraži";
-            NumOfActiveMembersLabel.Content = "Broj aktivnih članova: " + activeMembersCount;
-            NumOfRentedBooksLabel.Content="Broj dignutih knjiga: " + rentedBooksCount;
+            NumOfActiveMembersLabel.Text = "Broj aktivnih članova: " + activeMembersCount;
+            NumOfRentedBooksLabel.Text="Broj podignutih knjiga: " + rentedBooksCount;
         }
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -64,8 +64,8 @@ namespace LibraryWPF
                     }
 
                     // Update the labels
-                    NumOfActiveMembersLabel.Content = $"Number of active members: {activeMembersCount}";
-                    NumOfRentedBooksLabel.Content = $"Number of rented books: {rentedBooksCount}";
+                    NumOfActiveMembersLabel.Text = $"Number of active members: {activeMembersCount}";
+                    NumOfRentedBooksLabel.Text = $"Number of rented books: {rentedBooksCount}";
                 }
             }
             catch (Exception ex)

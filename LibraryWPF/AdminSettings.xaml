@@ -23,51 +23,68 @@
 
         <!-- Sidebar with Material Design Buttons -->
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="5" Grid.RowSpan="3">
-            <Button Content="Members" Height="30" Margin="5" Click="MembersNav_click" Name="MembersNav"/>
-            <Button Content="Books" Height="30" Margin="5" Click="BooksNav_click" Name="BooksNav"/>
-            <Button Content="Settings" Height="30" Margin="5" Name="SettingsNav" />
-            <Button Content="Logout" Height="30" Margin="5" Click="LogoutButton_Click" Name="LogoutNav"/>
+            <Button Height="30" Margin="5" Click="MembersNav_click" x:Name="MembersNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountMultiple" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Members" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
+            <Button Height="30" Margin="5" Click="BooksNav_click" x:Name="BooksNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="BookOpen" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Books" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
+            <Button Height="30" Margin="5" x:Name="SettingsNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Cog" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Settings" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
+            <Button Height="30" Margin="5" Click="LogoutButton_Click" x:Name="LogoutNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Logout" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Logout" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
         </StackPanel>
 
         <!-- Main Content with Material Design Elements -->
         <materialDesign:Card Grid.Column="1" Grid.Row="0" Margin="10" Padding="10">
             <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Left">
-                <TextBlock Name="LanLabel"  Text="Language:" Margin="0 0 0 5" Style="{StaticResource MaterialDesignBody1TextBlock}"/>
-                <ComboBox  
-                          Width="120" 
-                          Height="40" 
-                          SelectedIndex="0" 
-                          Name="LanguageChangeBox" 
-                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                <TextBlock x:Name="LanLabel" Text="Language:" Margin="0 0 0 5" 
+                           Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" />
+                <ComboBox Width="120" Height="40" SelectedIndex="0" x:Name="LanguageChangeBox" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="12">
                     <ComboBoxItem Content="English" />
                     <ComboBoxItem Content="Srpski" />
                 </ComboBox>
-                <Button Style="{StaticResource MaterialDesignRaisedButton}" 
-                        Content="Change" 
-                        Width="100" 
-                        Margin="0 10 0 0" 
-                        Click="LanguageChange_Click" 
-                        Name="LanButton"/>
+                <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" Margin="0 10 0 0" 
+                        Click="LanguageChange_Click" x:Name="LanButton">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Translate" VerticalAlignment="Center" Margin="0 0 5 0" />
+                        <TextBlock Text="Change" VerticalAlignment="Center" FontSize="12" />
+                    </StackPanel>
+                </Button>
 
-                
-                <TextBox materialDesign:HintAssist.Hint="Enter Fee" 
-                         Width="120" 
-                         Height="40" 
-                         Margin="0 5 0 5" 
-                         Name="FeeBox" 
-                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <Button Style="{StaticResource MaterialDesignRaisedButton}" 
-                        Content="Update" 
-                        Width="100" 
-                        Margin="0 10 0 0" 
-                        Click="UpdateFineButton_Click" 
-                        Name="FeeButton"/>
-                <ComboBox materialDesign:HintAssist.Hint="Select Theme" 
-          Width="120" 
-          Height="40" 
-          Name="ThemeChangeBox" 
-          SelectionChanged="ThemeChangeBox_SelectionChanged" 
-          Style="{StaticResource MaterialDesignComboBox}">
+                <TextBox materialDesign:HintAssist.Hint="Enter Fee" Width="120" Height="40" 
+                         Margin="0 5 0 5" x:Name="FeeBox" 
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="12" />
+                <Button Style="{StaticResource MaterialDesignRaisedButton}" Width="100" Margin="0 10 0 0" 
+                        Click="UpdateFineButton_Click" x:Name="FeeButton">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="CurrencyUsd" VerticalAlignment="Center" Margin="0 0 5 0" />
+                        <TextBlock Text="Update" VerticalAlignment="Center" FontSize="12" />
+                    </StackPanel>
+                </Button>
+
+                <ComboBox materialDesign:HintAssist.Hint="Select Theme" Width="120" Height="40" 
+                          x:Name="ThemeChangeBox" SelectionChanged="ThemeChangeBox_SelectionChanged" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="12">
                     <ComboBoxItem Content="Light" />
                     <ComboBoxItem Content="Dark" />
                     <ComboBoxItem Content="Deep Purple" />

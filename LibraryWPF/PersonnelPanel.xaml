@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:LibraryWPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -14,8 +15,9 @@
             <RowDefinition Height="Auto" />
             <!-- Search Bar -->
             <RowDefinition Height="Auto" />
-            <!-- DataGrid -->
+            <!-- Labels -->
             <RowDefinition Height="*" />
+            <!-- DataGrid -->
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150" />
@@ -26,26 +28,59 @@
 
         <!-- Sidebar Buttons -->
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top" Margin="5">
-            <Button Content="Books" Height="30" Margin="5" Name="BooksNav"/>
-            <Button Content="Settings" Height="30" Margin="5" Name="SettingsNav" Click="SettingsButton_Click"/>
-            <Button Content="Logout" Height="30" Margin="5" Click="LogoutButton_Click" Name="LogoutNav"/>
+            <Button Height="30" Margin="5" x:Name="BooksNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="BookOpen" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Books" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
+            <Button Height="30" Margin="5" Click="SettingsButton_Click" x:Name="SettingsNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Cog" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Settings" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
+            <Button Height="30" Margin="5" Click="LogoutButton_Click" x:Name="LogoutNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Logout" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Logout" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
         </StackPanel>
 
         <!-- Search Bar -->
         <DockPanel Grid.Row="2" Grid.Column="1" Margin="10">
-            <TextBox x:Name="SearchBox" Width="300" Height="30" VerticalAlignment="Center" Margin="0,0,10,0"/>
-            <Button Content="Search" Width="100" Height="30" Click="SearchButton_Click" Name="SearchButton"/>
+            <TextBox x:Name="SearchBox" Width="300" Height="30" VerticalAlignment="Center" Margin="0,0,10,0"
+                     materialDesign:HintAssist.Hint="Search Books" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="12" />
+            <Button Width="100" Height="30" Click="SearchButton_Click" x:Name="SearchButton"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Magnify" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Search" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
         </DockPanel>
-        <StackPanel Grid.Column="1">
-            <Label Name="NumOfActiveMembersLabel" Margin="10"  Content="Number of active members: 5"/>
-            <Label Name="NumOfRentedBooksLabel" Margin="10" Content="Number of rented books: 5"/>
+
+        <!-- Labels replaced with TextBlocks -->
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10,50,10,10">
+            <TextBlock x:Name="NumOfActiveMembersLabel" Margin="0,0,0,5" 
+                       Text="Number of active members: 5" 
+                       Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" />
+            <TextBlock x:Name="NumOfRentedBooksLabel" Margin="0,0,0,5" 
+                       Text="Number of rented books: 5" 
+                       Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" />
         </StackPanel>
-            <!-- DataGrid -->
+
+        <!-- DataGrid -->
         <DataGrid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" x:Name="BooksDataGrid"
-          AutoGenerateColumns="True"
-          HorizontalAlignment="Stretch"
-          VerticalAlignment="Stretch"
-          Margin="10"
-          MouseDoubleClick="BooksDataGrid_MouseDoubleClick" />
+                  AutoGenerateColumns="True"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Margin="10"
+                  MouseDoubleClick="BooksDataGrid_MouseDoubleClick" />
     </Grid>
 </UserControl>

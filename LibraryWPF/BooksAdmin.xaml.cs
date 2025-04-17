@@ -15,7 +15,7 @@ namespace LibraryWPF
         {
             InitializeComponent();
             LoadBooks();
-            BooksNav.Background= new SolidColorBrush(Colors.Red);
+            BooksNav.Background= new SolidColorBrush(Colors.LightGreen);
             if (AdminSettings.selectedIndex == 1)
                 changeToSerbian();
         }

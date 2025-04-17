@@ -30,6 +30,7 @@ namespace LibraryWPF
             }
             if (AdminSettings.selectedIndex == 1) LanguageChange();
             ApplyCurrentTheme();
+            SaveButton.Background = new SolidColorBrush(Colors.LightGreen);
         }
         private void LanguageChange()
         {
@@ -40,6 +41,12 @@ namespace LibraryWPF
             ToPayBlock.Text = "Dug:";
             SaveButton.Content = "Sačuvaj";
             CancelButton.Content = "Otkaži";
+            HintAssist.SetHint(FirstNameTextBox, "Unesite ime");
+            HintAssist.SetHint(LastNameTextBox, "Unesite prezime");
+            HintAssist.SetHint(ToPayTextBox, "Unesite dug");
+            HintAssist.SetHint(DateOfBirthPicker, "Unesite datum rođenja");
+            HintAssist.SetHint(MembershipStartDatePicker, "Unesite datum početka članstva");
+
         }
         private void ApplyCurrentTheme()
         {
@@ -91,7 +98,9 @@ namespace LibraryWPF
 
             if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName) || dob == null || membershipStart == null)
             {
+                if(AdminSettings.selectedIndex == 0) 
                 MessageBox.Show("All fields are required.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                else if(AdminSettings.selectedIndex == 1) MessageBox.Show("Popunite sva polja.", "Validacijska Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 

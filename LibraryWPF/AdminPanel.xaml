@@ -22,33 +22,89 @@
 
         <!-- Navigation Buttons -->
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="5" Grid.RowSpan="3">
-            <Button Content="Members" Height="30" Margin="5" Click="MembersNav_click" Name="MembersNav"/>
-            <Button Content="Books" Height="30" Margin="5" Click="BooksNav_click" Name="BooksNav"/>
-            <Button Content="Settings" Height="30" Margin="5" Click="SettingsNav_click" Name="SettingsNav" />
-            <Button Content="Logout" Height="30" Margin="5" Click="LogoutButton_Click" Name="LogoutNav"/>
+            <Button Height="30" Margin="5" Click="MembersNav_click" x:Name="MembersNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountMultiple" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Members" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Height="30" Margin="5" Click="BooksNav_click" x:Name="BooksNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="BookOpen" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Books" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Height="30" Margin="5" Click="SettingsNav_click" x:Name="SettingsNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Cog" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Settings" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Height="30" Margin="5" Click="LogoutButton_Click" x:Name="LogoutNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Logout" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Logout" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
         </StackPanel>
 
         <!-- Search Section -->
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Margin="5">
-            <TextBox x:Name="SearchLastNameTextBox" Width="150" Margin="5" />
-            <Button Content="Search" Width="100" Margin="5" Click="SearchButton_Click" Name="SearchButton"/>
-            <Button Content="Details" Width="100" Margin="5" Click="DetailsButton_Click" Name="DetailsButton"/>
+            <TextBox x:Name="SearchLastNameTextBox" Width="150" Margin="5" 
+                     materialDesign:HintAssist.Hint="Search by Last Name" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                     FontSize="12" />
+            <Button Width="100" Margin="5" Click="SearchButton_Click" x:Name="SearchButton"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Magnify" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Search" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Width="100" Margin="5" Click="DetailsButton_Click" x:Name="DetailsButton"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Information" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Details" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
         </StackPanel>
+
         <!-- DataGrid to Display Members -->
-            <DataGrid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" x:Name="DataGridTable"
-          AutoGenerateColumns="True"
-          HorizontalAlignment="Stretch"
-          VerticalAlignment="Stretch"
-          Margin="10" />
-            <!-- CRUD Buttons -->
-            
-        
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Grid.Column="1" Grid.Row="3">
-            <Button Content="Create" Width="100" Margin="5" Click="CreateButton_Click" Name="CreateButton"/>
-            <Button Content="Update" Width="100" Margin="5"  Click="UpdateButton_Click" Name="UpdateButton"/>
-            <Button Content="Delete" Width="100" Margin="5" Click="DeleteButton_Click" Name="DeleteButton"/>
+        <DataGrid Grid.Row="1" Grid.RowSpan="2" Grid.Column="1" x:Name="DataGridTable"
+                  AutoGenerateColumns="True"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Margin="10" />
+
+        <!-- CRUD Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+                    Margin="5" Grid.Column="1" Grid.Row="3">
+            <Button Width="100" Margin="5" Click="CreateButton_Click" x:Name="CreateButton"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Plus" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Create" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Width="100" Margin="5" Click="UpdateButton_Click" x:Name="UpdateButton"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Pencil" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Update" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Width="100" Margin="5" Click="DeleteButton_Click" x:Name="DeleteButton"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Delete" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Delete" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
         </StackPanel>
-
-
     </Grid>
 </UserControl>

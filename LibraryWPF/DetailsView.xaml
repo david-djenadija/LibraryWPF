@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:LibraryWPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -27,28 +28,69 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+
+        <!-- Sidebar Buttons -->
         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" VerticalAlignment="Top" Margin="5" Grid.RowSpan="5">
-            <Button Content="Members" Height="30" Margin="5" Click="MembersNav_click" Name="MembersNav"/>
-            <Button Content="Books" Height="30" Margin="5" Click="BooksNav_click" Name="BooksNav"/>
-            <Button Content="Settings" Height="30" Margin="5" Click="SettingsNav_click" Name="SettingsNav"/>
-            <Button Content="Logout" Height="30" Margin="5" Click="LogoutButton_Click" Name="LogoutNav"/>
+            <Button Height="30" Margin="5" Click="MembersNav_click" x:Name="MembersNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="AccountMultiple" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Members" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
+            <Button Height="30" Margin="5" Click="BooksNav_click" x:Name="BooksNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="BookOpen" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Books" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
+            <Button Height="30" Margin="5" Click="SettingsNav_click" x:Name="SettingsNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Cog" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Settings" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
+            <Button Height="30" Margin="5" Click="LogoutButton_Click" x:Name="LogoutNav"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Logout" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Logout" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
         </StackPanel>
-        <Label Content="Ime Prezime" Grid.Row="0" Grid.Column="1" Name="NameLabel"/>
-        <Label Content="Datum rodjenja" Grid.Row="1" Grid.Column="1" Name="BirthDateLabel"/>
-        <Label Content="Pol" Grid.Row="1" Grid.Column="2" Name="GenderLabel"/>
-        <Label Content="Mejl" Grid.Row="1" Grid.Column="3" Name="EmailLabel" Grid.ColumnSpan="2"/>
-        <Label Content="Pocetak Membership" Grid.Row="2" Grid.Column="1" Name="MembershipStartLabel"/>
-        <Label Content="Kraj Membership" Grid.Row="2" Grid.Column="2" Name="MembershipEndLabel"/>
-        <Label Content="Za platiti" Grid.Row="2" Grid.Column="3" Name="AmountDueLabel"/>
+
+        <!-- TextBlocks replacing Labels -->
+        <TextBlock Text="Ime Prezime" Grid.Row="0" Grid.Column="1" x:Name="NameLabel"
+                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
+        <TextBlock Text="Datum rodjenja" Grid.Row="1" Grid.Column="1" x:Name="BirthDateLabel"
+                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
+        <TextBlock Text="Pol" Grid.Row="1" Grid.Column="2" x:Name="GenderLabel"
+                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
+        <TextBlock Text="Mejl" Grid.Row="1" Grid.Column="3" x:Name="EmailLabel" Grid.ColumnSpan="2"
+                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
+        <TextBlock Text="Pocetak Membership" Grid.Row="2" Grid.Column="1" x:Name="MembershipStartLabel"
+                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
+        <TextBlock Text="Kraj Membership" Grid.Row="2" Grid.Column="2" x:Name="MembershipEndLabel"
+                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
+        <TextBlock Text="Za platiti" Grid.Row="2" Grid.Column="3" x:Name="AmountDueLabel"
+                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
+
         <!-- Button to toggle data -->
-        <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Content="Show Reservations" 
-                Margin="10 0" Height="30" HorizontalAlignment="Left" Width="180" 
-                Click="ToggleDataButton_Click" Name="ReservationButton" />
+        <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Margin="10 0" Height="30" 
+                HorizontalAlignment="Left" Width="180" Click="ToggleDataButton_Click" 
+                x:Name="ReservationButton" Style="{StaticResource MaterialDesignRaisedButton}">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="BookmarkCheck" VerticalAlignment="Center" Margin="0 0 5 0" />
+                <TextBlock Text="Show Reservations" VerticalAlignment="Center" FontSize="12" />
+            </StackPanel>
+        </Button>
+
+        <!-- DataGrid -->
         <DataGrid Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4" Grid.RowSpan="7" x:Name="DataGridTable"
-              AutoGenerateColumns="True"
-              HorizontalAlignment="Stretch"
-              VerticalAlignment="Stretch"
-              Margin="10" />
-        
+                  AutoGenerateColumns="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  Margin="10" materialDesign:DataGridAssist.CellPadding="4" 
+                  Style="{StaticResource MaterialDesignDataGrid}" />
     </Grid>
 </UserControl>

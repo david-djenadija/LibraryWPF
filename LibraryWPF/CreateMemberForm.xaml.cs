@@ -25,6 +25,7 @@ namespace LibraryWPF
         {
             InitializeComponent();
             ApplyCurrentTheme();
+            SaveButton.Background = new SolidColorBrush(Colors.LightGreen);
             if (AdminSettings.selectedIndex == 1) languageChange();
         }
         private void languageChange()
@@ -40,6 +41,16 @@ namespace LibraryWPF
             ToPayBlock.Text = "Dug:";
             SaveButton.Content = "Sačuvaj";
             CancelButton.Content = "Otkaži";
+            HintAssist.SetHint(FirstNameTextBox, "Unesite ime");
+            HintAssist.SetHint(LastNameTextBox, "Unesite prezime");
+            HintAssist.SetHint(DateOfBirthPicker, "Unesite datum rođenja");
+            HintAssist.SetHint(UsernameTextBox, "Unesite korisničko ime");
+            HintAssist.SetHint(PasswordBox, "Unesite šifru");
+            HintAssist.SetHint(GenderComboBox, "Izaberite pol");
+            HintAssist.SetHint(MembershipStartDatePicker, "Unesite datum početka članstva");
+            HintAssist.SetHint(MembershipEndDatePicker, "Unesite datum kraja članstva");
+            HintAssist.SetHint(ToPayTextBox, "Unesite dug");
+
         }
         private void ApplyCurrentTheme()
         {

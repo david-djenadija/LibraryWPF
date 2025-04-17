@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MaterialDesignThemes.Wpf;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace LibraryWPF
         public PersonnelSettings()
         {
             InitializeComponent();
-            SettingsNav.Background = new SolidColorBrush(Colors.Red);
+            SettingsNav.Background = new SolidColorBrush(Colors.LightGreen);
             if (selectedIndex == 1)LanguageChange();
             string currentTheme = ThemeManager.GetCurrentTheme();
             ThemeChangeBox.SelectedItem = ThemeChangeBox.Items.Cast<ComboBoxItem>()
@@ -90,7 +91,7 @@ namespace LibraryWPF
             BooksNav.Content = "Knjige";
             SettingsNav.Content = "Podešavanja";
             LogoutNav.Content = "Odjava";
-            LanLabel.Content = "Jezik:";
+            HintAssist.SetHint(LanguageChangeBox, "Izaberite jezik");
             LanButton.Content = "Promjeni";
             
         }

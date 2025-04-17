@@ -28,7 +28,7 @@ namespace LibraryWPF
         public AdminSettings()
         {
             InitializeComponent();
-            SettingsNav.Background = new SolidColorBrush(Colors.Red);
+            SettingsNav.Background = new SolidColorBrush(Colors.LightGreen);
             if (selectedIndex == 1) LanguageChange();
             string currentTheme = ThemeManager.GetCurrentTheme();
             ThemeChangeBox.SelectedItem = ThemeChangeBox.Items.Cast<ComboBoxItem>()
@@ -61,9 +61,9 @@ namespace LibraryWPF
         }
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show(
-          "Are you sure you want to log out?",
-          "Confirm Logout",
+            MessageBoxResult result = MessageBox.Show(AdminSettings.selectedIndex == 0 ?
+          "Are you sure you want to log out?" : "Jeste li sigurni da se želite odjaviti?",
+          AdminSettings.selectedIndex == 0 ? "Confirm Logout" : "Potvrdi odjavu",
           MessageBoxButton.YesNo,
           MessageBoxImage.Question);
 
@@ -77,7 +77,7 @@ namespace LibraryWPF
                 }
             }
         }
-       private void LanguageChange()
+        private void LanguageChange()
         {
             MembersNav.Content = "Članovi";
             BooksNav.Content = "Knjige";

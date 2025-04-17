@@ -26,7 +26,7 @@ namespace LibraryWPF
         {
             InitializeComponent();
             LoadMembers();
-            MembersNav.Background = new SolidColorBrush(Colors.Red);
+            MembersNav.Background = new SolidColorBrush(Colors.LightGreen);
             if (AdminSettings.selectedIndex==1)
             changeToSerbian();
         }
@@ -72,14 +72,18 @@ private void UpdateButton_Click(object sender, RoutedEventArgs e)
     }
     else
     {
-        MessageBox.Show("Please select a member to update.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-    }
+                if(AdminSettings.selectedIndex == 0)
+                    MessageBox.Show("Please select a member to update.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                else MessageBox.Show("Molim Vas izaberite člana kojeg ćete ažurirati.", "Upozorenje", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
 }
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             if (DataGridTable.SelectedItem == null)
             {
-                MessageBox.Show("Please select a member to delete.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                if (AdminSettings.selectedIndex == 0)
+                    MessageBox.Show("Please select a member to delete.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                else MessageBox.Show("Molim Vas izaberite člana kojeg ćete obrisati.", "Validacijska greška", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -95,7 +99,8 @@ private void UpdateButton_Click(object sender, RoutedEventArgs e)
             int memberId = Convert.ToInt32(selectedMember["MemberID"]);
 
             // Confirm deletion
-            var result = MessageBox.Show("Are you sure you want to delete this member?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            var result = MessageBox.Show(AdminSettings.selectedIndex==0 ? "Are you sure you want to delete this member?" : "Jeste li sigurni da želite obrisati ovog člana?", AdminSettings.selectedIndex == 0 ? "Confirmation" : "Potvrda", MessageBoxButton.YesNo, MessageBoxImage.Warning);
             if (result != MessageBoxResult.Yes)
             {
                 return;
@@ -119,12 +124,20 @@ private void UpdateButton_Click(object sender, RoutedEventArgs e)
 
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show("Member deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                            if (AdminSettings.selectedIndex == 0)
+                            {
+                                MessageBox.Show("Member deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                            }else MessageBox.Show("Član obrisan uspješno.", "Uspjeh", MessageBoxButton.OK, MessageBoxImage.Information);
                             LoadMembers(); // Refresh the DataGrid
                         }
                         else
                         {
-                            MessageBox.Show("Failed to delete member. Ensure the selected member exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            if (AdminSettings.selectedIndex == 0)
+                            {
+                                MessageBox.Show("Failed to delete member. Ensure the selected member exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                            else
+                                MessageBox.Show("Neuspješno brisanje člana.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                 }
@@ -187,9 +200,9 @@ private void UpdateButton_Click(object sender, RoutedEventArgs e)
         }
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show(
-          "Are you sure you want to log out?",
-          "Confirm Logout",
+            MessageBoxResult result = MessageBox.Show(AdminSettings.selectedIndex==0 ?
+          "Are you sure you want to log out?" : "Jeste li sigurni da se želite odjaviti?",
+          AdminSettings.selectedIndex == 0 ? "Confirm Logout" : "Potvrdi odjavu",
           MessageBoxButton.YesNo,
           MessageBoxImage.Question);
 

@@ -24,19 +24,35 @@
 
         <!-- Search Bar -->
         <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="10">
-            <TextBox x:Name="SearchTextBox" Width="200" Margin="0,0,10,0"  />
-            <Button Content="Search" Width="100" Click="SearchButton_Click" Name="SearchButton" />
-            <Button Content="Logout" Width="100" Click="LogoutButton_Click" Margin="10 0 10 0" HorizontalAlignment="Right" Name="LogoutButton"/>
-            <ComboBox x:Name="LanBox" Width="150" Height="25" Margin="10 0 10 0" SelectionChanged="LanBox_SelectionChanged">
+            <TextBox x:Name="SearchTextBox" Width="200" Height="30" Margin="0,0,10,0"
+                     materialDesign:HintAssist.Hint="Search Books" 
+                     Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="12" />
+            <Button Width="100" Height="30" Click="SearchButton_Click" x:Name="SearchButton"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Magnify" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Search" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
+            <Button Width="100" Height="30" Click="LogoutButton_Click" Margin="10 0 10 0" 
+                    HorizontalAlignment="Right" x:Name="LogoutButton"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Logout" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Logout" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
+            <ComboBox x:Name="LanBox" Width="150" Height="30" Margin="10 0 10 0" 
+                      SelectionChanged="LanBox_SelectionChanged"
+                      materialDesign:HintAssist.Hint="Select Language"
+                      Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="12">
                 <ComboBoxItem Content="English"/>
                 <ComboBoxItem Content="Srpski"/>
             </ComboBox>
-            <ComboBox materialDesign:HintAssist.Hint="Select Theme" 
-Width="150" 
-Height="26" 
-Name="ThemeChangeBox" 
-SelectionChanged="ThemeChangeBox_SelectionChanged" 
-Style="{StaticResource MaterialDesignComboBox}">
+            <ComboBox materialDesign:HintAssist.Hint="Select Theme" Width="150" Height="30" 
+                      Margin="0 0 10 0" x:Name="ThemeChangeBox" 
+                      SelectionChanged="ThemeChangeBox_SelectionChanged" 
+                      Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="12">
                 <ComboBoxItem Content="Light" />
                 <ComboBoxItem Content="Dark" />
                 <ComboBoxItem Content="Deep Purple" />
@@ -57,13 +73,25 @@ Style="{StaticResource MaterialDesignComboBox}">
 
         <!-- Rent and Reserve Buttons -->
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Margin="10">
-            <Button Content="Rent Book" Width="140" Margin="10,0,0,0" Click="RentBookButton_Click" Name="RentButton"/>
-            <Button Content="Reserve Book" Width="140" Margin="10,0,0,0" Click="ReserveBookButton_Click" Name="ReserveButton" />
+            <Button Width="140" Height="30" Margin="10,0,0,0" Click="RentBookButton_Click" x:Name="RentButton"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="BookArrowRight" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Rent Book" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
+            <Button Width="140" Height="30" Margin="10,0,0,0" Click="ReserveBookButton_Click" x:Name="ReserveButton"
+                    Style="{StaticResource MaterialDesignRaisedButton}">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="BookmarkPlus" VerticalAlignment="Center" Margin="0 0 5 0" />
+                    <TextBlock Text="Reserve Book" VerticalAlignment="Center" FontSize="12" />
+                </StackPanel>
+            </Button>
         </StackPanel>
 
         <DataGrid x:Name="BooksData1Grid" Grid.Row="3" AutoGenerateColumns="False" 
-          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"
-          SelectionMode="Single" IsReadOnly="True">
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10"
+                  SelectionMode="Single" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Book Title" Binding="{Binding Title}" Width="*"/>
                 <DataGridTextColumn Header="Date of Publishing" Binding="{Binding PublicationYear}" Width="*"/>
