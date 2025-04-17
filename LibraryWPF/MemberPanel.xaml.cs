@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using MaterialDesignThemes.Wpf;
 using MySql.Data.MySqlClient;
 using static MaterialDesignThemes.Wpf.Theme;
 
@@ -256,6 +257,7 @@ LEFT JOIN Person p ON a.PersonID=p.PersonID"
                     LogoutButton.Content = "Logout";
                     RentButton.Content = "Rent Book";
                     ReserveButton.Content = "Reserve Book";
+                    HintAssist.SetHint(SearchTextBox, "Search Books");
                 }
                 else
                 {
@@ -263,6 +265,7 @@ LEFT JOIN Person p ON a.PersonID=p.PersonID"
                     LogoutButton.Content = "Odjavi se";
                     RentButton.Content = "Digni knjigu";
                     ReserveButton.Content = "Rezerviši knjigu";
+                    HintAssist.SetHint(SearchTextBox, "Pretraži Knjige");
                 }
             }
         }

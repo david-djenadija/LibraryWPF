@@ -81,7 +81,7 @@
                         <TextBlock Text="Delete" VerticalAlignment="Center" FontSize="12" />
                     </StackPanel>
                 </Button>
-                <TextBox x:Name="SearchBox" Width="150" Height="25" VerticalAlignment="Center" Margin="10,0,10,0"
+                <TextBox x:Name="SearchBox" Width="150" Height="35" VerticalAlignment="Center" Margin="10,0,10,0"
                          materialDesign:HintAssist.Hint="Search Books" 
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="12" />
                 <Button Width="100" Margin="5" Click="SearchButton_Click" x:Name="SearchButton"

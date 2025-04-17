@@ -61,21 +61,13 @@
             </Button>
         </StackPanel>
 
-        <!-- TextBlocks replacing Labels -->
-        <TextBlock Text="Ime Prezime" Grid.Row="0" Grid.Column="1" x:Name="NameLabel"
-                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
-        <TextBlock Text="Datum rodjenja" Grid.Row="1" Grid.Column="1" x:Name="BirthDateLabel"
-                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
-        <TextBlock Text="Pol" Grid.Row="1" Grid.Column="2" x:Name="GenderLabel"
-                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
-        <TextBlock Text="Mejl" Grid.Row="1" Grid.Column="3" x:Name="EmailLabel" Grid.ColumnSpan="2"
-                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
-        <TextBlock Text="Pocetak Membership" Grid.Row="2" Grid.Column="1" x:Name="MembershipStartLabel"
-                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
-        <TextBlock Text="Kraj Membership" Grid.Row="2" Grid.Column="2" x:Name="MembershipEndLabel"
-                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
-        <TextBlock Text="Za platiti" Grid.Row="2" Grid.Column="3" x:Name="AmountDueLabel"
-                   Style="{StaticResource MaterialDesignBody1TextBlock}" FontSize="12" Margin="0 0 0 5" />
+        <Label Content="Ime Prezime" Grid.Row="0" Grid.Column="1" Name="NameLabel"/>
+        <Label Content="Datum rodjenja" Grid.Row="1" Grid.Column="1" Name="BirthDateLabel"/>
+        <Label Content="Pol" Grid.Row="1" Grid.Column="2" Name="GenderLabel"/>
+        <Label Content="Mejl" Grid.Row="1" Grid.Column="3" Name="EmailLabel" Grid.ColumnSpan="2"/>
+        <Label Content="Pocetak Membership" Grid.Row="2" Grid.Column="1" Name="MembershipStartLabel"/>
+        <Label Content="Kraj Membership" Grid.Row="2" Grid.Column="2" Name="MembershipEndLabel"/>
+        <Label Content="Za platiti" Grid.Row="2" Grid.Column="3" Name="AmountDueLabel"/>
 
         <!-- Button to toggle data -->
         <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Margin="10 0" Height="30" 

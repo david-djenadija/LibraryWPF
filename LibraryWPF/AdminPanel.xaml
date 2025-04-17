@@ -55,7 +55,7 @@
         <!-- Search Section -->
         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Margin="5">
             <TextBox x:Name="SearchLastNameTextBox" Width="150" Margin="5" 
-                     materialDesign:HintAssist.Hint="Search by Last Name" 
+                     materialDesign:HintAssist.Hint="Search by Name" 
                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                      FontSize="12" />
             <Button Width="100" Margin="5" Click="SearchButton_Click" x:Name="SearchButton"
